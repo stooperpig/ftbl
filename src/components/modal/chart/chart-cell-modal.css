@@ -1,0 +1,56 @@
+.chart-cell-modal {
+    margin-top: 10px;
+}
+
+.chart-cell-modal-chart-cell-key {
+    text-align: left;
+    border-bottom: 1px grey solid;
+    padding: 10px 0px 10px 10px;
+}
+
+.chart-cell-modal-label {
+    display: inline-block;
+    font-weight: bold;
+}
+
+.chart-cell-modal-read-only {
+    padding-left: 5px;
+    display: inline-block;
+    color: grey;
+    margin-right: 10px;
+}
+
+.chart-cell-modal-ocr {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px grey dashed;
+    padding-left: 10px;
+}
+
+.chart-cell-modal-select {
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.chart-cell-modal-checkbox {
+    padding-left: 5px;
+    margin-right: 20px;
+}
+
+.chart-cell-modal-text {
+    margin-left: 5px;
+    margin-right: 20px;
+}
+
+.chart-cell-modal-row {
+    margin-bottom: 10px;
+}
+
+.chart-cell-modal-button {
+    margin: 0px 10px 0px 10px;
+    width: 100px;
+}
+
+.chart-cell-modal-buttons {
+    margin: 10px 0px 10px 0px;
+}

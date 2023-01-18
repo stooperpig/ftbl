@@ -1,0 +1,45 @@
+.game-status-panel {
+    margin-top: 10px;
+    width: 100%;
+    background-color: black;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.game-status-panel-bar {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 1600px;
+    background-color: #444444;
+    color: white;
+    border:1px solid white;
+    font-size: 30px;
+    font-weight: bold;
+} 
+
+.game-status-panel-quarter {
+    padding-top: 5px;
+    padding-left: 20px;
+    width: 50px;
+    text-align: center;
+}
+
+.game-status-panel-time {
+    padding-top: 5px;
+    padding-left: 10px;
+    width: 150px;
+    text-align: center;
+    border-right: 1px solid white;
+}
+
+.game-status-panel-down {
+    padding-top: 5px;
+    padding-left: 10px;
+    flex:1;
+    text-align: center;
+}
+
+.game-status-panel-small {
+    font-size:20px;
+}

@@ -1,0 +1,13 @@
+.play-results-panel {
+    flex: 1;
+    background-color: #777777;
+    color: white;
+    font-weight: bold;
+    border: 1px solid grey;
+    text-align: left;
+    padding: 10px;
+}
+
+.play-results-panel svg {
+    color: white;
+}

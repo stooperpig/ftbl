@@ -1,0 +1,40 @@
+.team-panel {
+    display:flex;
+    flex-direction: column;
+    width: 400px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-right: 1px solid white;
+}
+
+
+.team-panel-timeout {
+    height: 5px;
+    background-color: white;
+    border: 1px solid grey;
+  }
+
+  .team-panel-first-row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .team-panel-second-row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .team-panel-name {
+    flex: 1;
+    text-align: left;
+  }
+
+  .team-panel-score {
+    width: 40px;
+    text-align: right;
+  }
+
+  .team-panel-second-row > div {
+    flex: 1;
+    margin: 2px 1px 2px 2px;
+  }

@@ -1,0 +1,76 @@
+.chart-panel {
+    color: black;
+    padding-left: 10px;
+}
+
+.chart-panel-heading {
+    padding: 10px 0px 10px 0px;
+    text-align: left;
+}
+
+.chart-panel-chart-types {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.chart-panel-chart-types button {
+    margin: 0px 10px 0px 10px;
+}
+
+.chart-panel-defensive-play {
+    width: 50px;
+    font-weight: bold;
+    border: 4px solid black;
+}
+
+.chart-panel .chart-panel-chart {
+    border: 4px solid black;
+    border-collapse: collapse;
+}
+
+.chart-panel .chart-panel-chart tbody td {
+    border: 1px solid black;
+}
+
+.chart-panel .chart-panel-chart thead th {
+    border: 1px solid black;
+    font-weight: bold;
+    width: 75px;
+}
+
+.chart-panel-row-heading {
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+.chart-panel-cell-green {
+    background-color: lightgreen;
+}
+
+.chart-panel-cell-red {
+    background-color: red;
+}
+
+.chart-panel-cell-black {
+    background-color: black;
+}
+
+.chart-panel-cell-yellow {
+    background-color: yellow
+}
+
+.chart-panel-cell-error {
+    background-color: pink;
+}
+
+.chart-panel-cell-white {
+    background-color: white;
+}
+
+.chart-panel-cell-unknown {
+    background-color: gray;
+}
+
+.chart-panel .chart-panel-chart tbody td.chart-panel-selected-cell {
+    border: 4px solid blue;
+}
