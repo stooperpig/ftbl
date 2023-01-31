@@ -23,7 +23,7 @@ export const FieldPanel = (props: PropTypes) => {
     const ratio = (53 + 1 / 3) / 120;
     const topMargin = 40;
     const leftMargin = 20;
-    const totalWidth = 1200;
+    const totalWidth = 12git s00;
     const scale = (totalWidth / 1600);
     const totalHeight = (totalWidth * ratio) + topMargin;
     const width = totalWidth - (2 * leftMargin);
