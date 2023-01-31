@@ -23,8 +23,9 @@ export const FieldPanel = (props: PropTypes) => {
     const ratio = (53 + 1 / 3) / 120;
     const topMargin = 40;
     const leftMargin = 20;
-    const totalWidth = 1600;
-    const totalHeight = (1600 * ratio) + topMargin;
+    const totalWidth = 1200;
+    const scale = (totalWidth / 1600);
+    const totalHeight = (totalWidth * ratio) + topMargin;
     const width = totalWidth - (2 * leftMargin);
     const height = width * ratio;
     const yardToPixelRatio = width / 120;
@@ -65,73 +66,73 @@ export const FieldPanel = (props: PropTypes) => {
 
                     if (i % 100 === 0) {
                         context.strokeStyle = 'white';
-                        context.lineWidth = 2;
+                        context.lineWidth = (2 * scale);
                         context.moveTo(x, topSideLine)
                         context.lineTo(x, bottomSideLine);
                         context.stroke();
                     } else if (i % 10 === 0) {
                         context.strokeStyle = 'white';
-                        context.lineWidth = 3;
+                        context.lineWidth = (3 * scale);
                         context.moveTo(x, topSideLine)
                         context.lineTo(x, bottomSideLine);
                         context.stroke();
 
                         if (i < 50) {
                             let region = new Path2D();
-                            region.moveTo(x - 30, bottomSideLine - yardNumberOffset - 5);
-                            region.lineTo(x - 30, bottomSideLine - yardNumberOffset - 16);
-                            region.lineTo(x - 39, bottomSideLine - yardNumberOffset - 11);
-                            region.lineTo(x - 30, bottomSideLine - yardNumberOffset - 6);
+                            region.moveTo(x - (30 * scale), bottomSideLine - yardNumberOffset - (5 * scale));
+                            region.lineTo(x - (30 * scale), bottomSideLine - yardNumberOffset - (16 * scale));
+                            region.lineTo(x - (39 * scale), bottomSideLine - yardNumberOffset - (11 * scale));
+                            region.lineTo(x - (30 * scale), bottomSideLine - yardNumberOffset - (6 * scale));
                             context.fillStyle = 'white';
                             context.fill(region, "evenodd");
 
                             region = new Path2D();
-                            region.moveTo(x - 30, topSideLine + yardNumberOffset + 5);
-                            region.lineTo(x - 30, topSideLine + yardNumberOffset + 16);
-                            region.lineTo(x - 39, topSideLine + yardNumberOffset + 11);
-                            region.lineTo(x - 30, topSideLine + yardNumberOffset + 6);
+                            region.moveTo(x - (30 * scale), topSideLine + yardNumberOffset + (5 * scale));
+                            region.lineTo(x - (30 * scale), topSideLine + yardNumberOffset + (16 * scale));
+                            region.lineTo(x - (39 * scale), topSideLine + yardNumberOffset + (11 * scale));
+                            region.lineTo(x - (30 * scale), topSideLine + yardNumberOffset + (6 * scale));
                             context.fillStyle = 'white';
                             context.fill(region, "evenodd");
                         } else if (i > 50) {
                             let region = new Path2D();
-                            region.moveTo(x + 30, bottomSideLine - yardNumberOffset - 5);
-                            region.lineTo(x + 30, bottomSideLine - yardNumberOffset - 16);
-                            region.lineTo(x + 39, bottomSideLine - yardNumberOffset - 11);
-                            region.lineTo(x + 30, bottomSideLine - yardNumberOffset - 6);
+                            region.moveTo(x + (30 * scale), bottomSideLine - yardNumberOffset - (5 * scale));
+                            region.lineTo(x + (30 * scale), bottomSideLine - yardNumberOffset - (16 * scale));
+                            region.lineTo(x + (39 * scale), bottomSideLine - yardNumberOffset - (11 * scale));
+                            region.lineTo(x + (30 * scale), bottomSideLine - yardNumberOffset - (6 * scale));
                             context.fillStyle = 'white';
                             context.fill(region, "evenodd");
 
                             region = new Path2D();
-                            region.moveTo(x + 30, topSideLine + yardNumberOffset + 5);
-                            region.lineTo(x + 30, topSideLine + yardNumberOffset + 16);
-                            region.lineTo(x + 39, topSideLine + yardNumberOffset + 11);
-                            region.lineTo(x + 30, topSideLine + yardNumberOffset + 6);
+                            region.moveTo(x + (30 * scale), topSideLine + yardNumberOffset + (5 * scale));
+                            region.lineTo(x + (30 * scale), topSideLine + yardNumberOffset + (16 * scale));
+                            region.lineTo(x + (39 * scale), topSideLine + yardNumberOffset + (11 * scale));
+                            region.lineTo(x + (30 * scale), topSideLine + yardNumberOffset + (6 * scale));
                             context.fillStyle = 'white';
                             context.fill(region, "evenodd");
                         }
                     } else if (i % 5 === 0) {
                         context.strokeStyle = 'white';
-                        context.lineWidth = 1;
+                        context.lineWidth = (1 * scale);
                         context.moveTo(x, topSideLine)
                         context.lineTo(x, bottomSideLine);
                         context.stroke();
                     } else {
-                        context.lineWidth = 1;
+                        context.lineWidth = (1 * scale);
                         context.strokeStyle = 'white';
                         context.moveTo(x, topSideLine + sideLineWidth)
                         context.lineTo(x, topSideLine + sideLineWidth + hashMarkHeight);
                         context.stroke();
-                        context.lineWidth = 1;
+                        context.lineWidth = (1 * scale);
                         context.moveTo(x, bottomSideLine - sideLineWidth)
                         context.lineTo(x, bottomSideLine - sideLineWidth - hashMarkHeight);
                         context.stroke();
 
-                        context.lineWidth = 1;
+                        context.lineWidth = (1 * scale);
                         context.strokeStyle = 'white';
                         context.moveTo(x, topSideLine + sideLineWidth + insideHashMarkOffset)
                         context.lineTo(x, topSideLine + sideLineWidth + hashMarkHeight + insideHashMarkOffset);
                         context.stroke();
-                        context.lineWidth = 1;
+                        context.lineWidth = (1 * scale);
                         context.moveTo(x, bottomSideLine - sideLineWidth - insideHashMarkOffset)
                         context.lineTo(x, bottomSideLine - sideLineWidth - hashMarkHeight - insideHashMarkOffset);
                         context.stroke();
@@ -145,29 +146,38 @@ export const FieldPanel = (props: PropTypes) => {
                     console.log('i: ' + i + ' x: ' + x);
                     context.beginPath();
 
-                    context.font = "30px Arial";
+                    context.font = `${30 * scale}px Arial`;;
                     context.textAlign = 'center';
-                    context.letterSpacing = '12px';
-                    context.strokeText(getYardNumber(i), x + 5, bottomSideLine - yardNumberOffset);
+                    context.letterSpacing = `${12 * scale}px`;
+                    context.strokeText(getYardNumber(i), x + (5 * scale), bottomSideLine - yardNumberOffset);
                     context.stroke();
                 }
 
 
                 //todo: need to figure out these offsets;  why 535 and 205?
                 //draw top yard numbers;
+
+                console.log("canvas width: " + canvas.width);
+                console.log("canvas height: " + canvas.height);
+                console.log("totalWidth: " + totalWidth);
+                console.log("totalHeight: " + totalHeight);
+
+
                 context.save();
                 context.translate(totalWidth / 2, totalHeight / 2);
                 context.rotate(-1.0 * Math.PI);
+                context.translate(-totalWidth / 2, -totalHeight / 2);
                 for (let i = 10; i < 100; i += 10) {
-                    let x = getPixelFromYard(i - 10, yardToPixelRatio) + leftMargin;
+                    let x = getPixelFromYard(i + 10, yardToPixelRatio) + leftMargin;
 
                     console.log('i: ' + i + ' x: ' + x);
                     context.beginPath();
 
-                    context.font = "30px Arial";
+                    context.font = `${30 * scale}px Arial`;
                     context.textAlign = 'center';
-                    context.letterSpacing = '12px';
-                    context.strokeText(getYardNumber(i), x - 535, topSideLine + 205);
+                    context.letterSpacing = `${12 * scale}px`;
+                    context.strokeText(getYardNumber(i), x + (5 * scale), bottomSideLine - yardNumberOffset - 23);
+                    //context.strokeText(getYardNumber(i), x - (535 * scale), topSideLine + (205 / scale));
                     context.stroke();
                 }
                 context.restore();
@@ -175,7 +185,7 @@ export const FieldPanel = (props: PropTypes) => {
                 let yardMarkerOffset = 0;
 
                 if (Math.abs(firstDownYard - currentYard) < 3) {
-                    yardMarkerOffset = (firstDownYard < currentYard) ? -3 : 3;
+                    yardMarkerOffset = (firstDownYard < currentYard) ? (-3 * scale) : (3 * scale);
                 }
 
                 //draw line of scrimmage
@@ -183,19 +193,19 @@ export const FieldPanel = (props: PropTypes) => {
 
                 let x = getPixelFromYard(currentYard + 10, yardToPixelRatio) + leftMargin;
                 context.strokeStyle = 'black';
-                context.lineWidth = 2;
-                context.moveTo(x, topSideLine + 2)
-                context.lineTo(x, bottomSideLine - 2);
+                context.lineWidth = (2 * scale);
+                context.moveTo(x, topSideLine + (2 * scale))
+                context.lineTo(x, bottomSideLine - (2 * scale));
                 context.stroke();
 
                 if (Math.abs(firstDownYard - currentYard) < 2) {
-                    yardMarkerOffset = (firstDownYard < currentYard) ? 8 : -8;
+                    yardMarkerOffset = (firstDownYard < currentYard) ? (8 * scale) : (-8 * scale);
                 }
 
-                context.font = "20px Arial";
+                context.font = `${20 * scale}px Arial`;
                 context.textAlign = 'center';
                 context.letterSpacing = '2px';
-                context.strokeText(getYardNumber(currentYard), x + yardMarkerOffset, topSideLine - 6);
+                context.strokeText(getYardNumber(currentYard), x + yardMarkerOffset, topSideLine - (6 * scale));
                 context.stroke();
 
                 //draw firstDownMarker
@@ -203,31 +213,31 @@ export const FieldPanel = (props: PropTypes) => {
 
                 x = getPixelFromYard(firstDownYard + 10, yardToPixelRatio) + leftMargin;
                 context.strokeStyle = 'yellow';
-                context.lineWidth = 2;
-                context.moveTo(x, topSideLine + 2)
-                context.lineTo(x, bottomSideLine - 2);
+                context.lineWidth = (2 * scale);
+                context.moveTo(x, topSideLine + (2 * scale))
+                context.lineTo(x, bottomSideLine - (2 * scale));
                 context.stroke();
 
                 if (Math.abs(firstDownYard - currentYard) < 3) {
-                    yardMarkerOffset = (firstDownYard < currentYard) ? -8 : 8;
+                    yardMarkerOffset = (firstDownYard < currentYard) ? (-8 * scale) : (8 * scale);
                 }
 
-                context.font = "20px Arial";
+                context.font = `${20 * scale}px Arial`;
                 context.textAlign = 'center';
                 context.letterSpacing = '2px';
-                context.strokeText(getYardNumber(firstDownYard), x + yardMarkerOffset, topSideLine - 6);
+                context.strokeText(getYardNumber(firstDownYard), x + yardMarkerOffset, topSideLine - (6 * scale));
                 context.stroke();
 
                 //draw football
-                const footballRadius = 10;
+                const footballRadius = (10 * scale);
                 const centerOfField = height / 2 + topMargin;
-                x = getPixelFromYard(currentYard + 10, yardToPixelRatio) + leftMargin;
+                x = getPixelFromYard(currentYard + (10 * scale), yardToPixelRatio) + leftMargin;
                 context.beginPath();
                 context.strokeStyle = 'brown';
                 context.moveTo(x - footballRadius, centerOfField);
-                context.quadraticCurveTo(x, centerOfField + 8, x + footballRadius, centerOfField);
+                context.quadraticCurveTo(x, centerOfField + (8 * scale), x + footballRadius, centerOfField);
                 context.moveTo(x + footballRadius, centerOfField);
-                context.quadraticCurveTo(x, centerOfField - 8, x - footballRadius, centerOfField);
+                context.quadraticCurveTo(x, centerOfField - (8 * scale), x - footballRadius, centerOfField);
                 context.fillStyle = "brown";
                 context.fill();
                 context.stroke();

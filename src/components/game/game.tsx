@@ -10,6 +10,10 @@ import { useDispatch } from 'react-redux';
 import { LOAD_GAME } from '../../constants/action-constants';
 import { AppDispatch } from '../../constants/store';
 
+interface UrlParameters {
+    [key: string]: string
+}
+
 interface PropTypes {
 }
 
@@ -22,10 +26,24 @@ const retrieveGame = () => async (dispatch: AppDispatch) => {
     dispatch({type: LOAD_GAME, payload: state});
 }
 
+const  getUrlVars = (): UrlParameters => {
+    let vars: UrlParameters = {};
+    window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m: string, key: string, value: string): string => {
+        vars[key] = value;
+        return value;
+    });
+
+    return vars;
+}
+
 export const Game = (props: PropTypes) => {
     const dispatch = useDispatch();
 
     React.useEffect(() => {
+        console.log("game mounted");
+        let parameters = getUrlVars();
+        let currentPlayer = (parameters.player) ? parseInt(parameters.player, 10) : 0;
+        console.log(currentPlayer);
         dispatch(retrieveGame());
     });
 
