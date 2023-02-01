@@ -8,7 +8,7 @@ export const InitialGameState: GameState  = {
         timeOuts: 3,
         score: 0,
         wonCoinToss: true,
-        receivingFirstHalf: true,
+        receivingSecondHalf: true,
         possession: true,
         player: {
             name: "Bill",
@@ -22,7 +22,7 @@ export const InitialGameState: GameState  = {
         timeOuts: 3,
         score: 0,
         wonCoinToss: false,
-        receivingFirstHalf: false,
+        receivingSecondHalf: false,
         possession: false,
         player: {
             name: "MJ",

@@ -1,6 +1,5 @@
 import { Chart } from "./chart-types"
 
-
 export interface GameState {
     homeTeam: Team,
     vistingTeam: Team,
@@ -27,7 +26,8 @@ export enum PlaySelectionMode {
     OFFENSE = "OFFENSE",
     DEFENSE = "DEFENSE",
     PAT = "PAT",
-    KICKOFF = "KICKOFF"
+    KICKOFF = "KICKOFF",
+    COIN_TOSS = "COIN_TOSS"
 }
 
 export interface Team {
@@ -37,7 +37,7 @@ export interface Team {
     timeOuts?: number,
     score?: number,
     wonCoinToss?: boolean,
-    receivingFirstHalf?: boolean,
+    receivingSecondHalf?: boolean,
     possession?: boolean,
     player?: Player
 }

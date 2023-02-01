@@ -23,7 +23,7 @@ export const FieldPanel = (props: PropTypes) => {
     const ratio = (53 + 1 / 3) / 120;
     const topMargin = 40;
     const leftMargin = 20;
-    const totalWidth = 1200;
+    const totalWidth = 1600;
     const scale = (totalWidth / 1600);
     const totalHeight = (totalWidth * ratio) + topMargin;
     const width = totalWidth - (2 * leftMargin);
@@ -153,15 +153,11 @@ export const FieldPanel = (props: PropTypes) => {
                     context.stroke();
                 }
 
-
-                //todo: need to figure out these offsets;  why 535 and 205?
                 //draw top yard numbers;
-
                 console.log("canvas width: " + canvas.width);
                 console.log("canvas height: " + canvas.height);
                 console.log("totalWidth: " + totalWidth);
                 console.log("totalHeight: " + totalHeight);
-
 
                 context.save();
                 context.translate(totalWidth / 2, totalHeight / 2);
@@ -177,7 +173,6 @@ export const FieldPanel = (props: PropTypes) => {
                     context.textAlign = 'center';
                     context.letterSpacing = `${12 * scale}px`;
                     context.strokeText(getYardNumber(i), x + (5 * scale), bottomSideLine - yardNumberOffset - 23);
-                    //context.strokeText(getYardNumber(i), x - (535 * scale), topSideLine + (205 / scale));
                     context.stroke();
                 }
                 context.restore();
@@ -231,7 +226,7 @@ export const FieldPanel = (props: PropTypes) => {
                 //draw football
                 const footballRadius = (10 * scale);
                 const centerOfField = height / 2 + topMargin;
-                x = getPixelFromYard(currentYard + (10 * scale), yardToPixelRatio) + leftMargin;
+                x = getPixelFromYard(currentYard + 10, yardToPixelRatio) + leftMargin;
                 context.beginPath();
                 context.strokeStyle = 'brown';
                 context.moveTo(x - footballRadius, centerOfField);
