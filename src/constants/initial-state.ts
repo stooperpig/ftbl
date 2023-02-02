@@ -1,6 +1,7 @@
-import { GameState, PlaySelectionMode } from "../types/game-types";
+import { CommState, GameState, PlaySelectionMode } from "../types/game-types";
 
 export const InitialGameState: GameState  = {
+    commState: CommState.READY,
     homeTeam: {
         name: "Georgia Tech",
         chartName: "georgiaTech",
@@ -36,5 +37,5 @@ export const InitialGameState: GameState  = {
     currentDown: 1,
     currentYard: 90,
     firstDownYard: 100,
-    playSelectionMode: PlaySelectionMode.OFFENSE
+    playSelectionMode: PlaySelectionMode.COIN_TOSS
 }

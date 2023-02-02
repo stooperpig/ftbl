@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import { Game } from './components/game/game';
-import { CoinTossModal } from './components/modal/coin-toss/coin-toss';
+import { OpeningKickoffModal } from './components/modal/opening-kickoff/opening-kickoff';
 
 function App() {
   return (
     <div className="App">
       <Game/>
-      <CoinTossModal/>
+      <OpeningKickoffModal/>
     </div>
   );
 }

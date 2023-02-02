@@ -9,6 +9,8 @@ import { InitialGameState } from '../../constants/initial-state';
 import { useDispatch } from 'react-redux';
 import { LOAD_GAME } from '../../constants/action-constants';
 import { AppDispatch } from '../../constants/store';
+import { PlaySelectionMode } from '../../types/game-types';
+import { roll6SidedDie } from '../../utils/dice-utils';
 
 interface UrlParameters {
     [key: string]: string
@@ -17,12 +19,36 @@ interface UrlParameters {
 interface PropTypes {
 }
 
-const retrieveGame = () => async (dispatch: AppDispatch) => {
+const retrieveGame = (currentPlayerId: number) => async (dispatch: AppDispatch) => {
     const homeTeamChart = await axios.get("/api/readChart?chartName=minnesota");
     const visitingTeamChart = await axios.get("/api/readChart?chartName=georgiaTech");
     const state = {...InitialGameState};
     state.homeTeam.chart = homeTeamChart.data
     state.vistingTeam.chart = visitingTeamChart.data;
+
+    state.currentPlayerId = currentPlayerId;
+
+    if (state.homeTeam.player?.id === currentPlayerId) {
+        document.title = state.homeTeam.name;
+    } else if (state.vistingTeam.player?.id === currentPlayerId) {
+        document.title = state.vistingTeam.name;
+    }
+
+    //check playSelectionMode and handle initial coin toss
+    if (state.playSelectionMode === PlaySelectionMode.COIN_TOSS) {
+        state.playSelectionMode = PlaySelectionMode.OPENING_KICKOFF;
+        const roll = roll6SidedDie();
+        if (roll < 4) {
+            state.homeTeam.wonCoinToss = true;
+            state.vistingTeam.wonCoinToss = false;
+            console.log("Home Team won toss");
+        } else {
+            console.log("Visting Team won toss");
+            state.homeTeam.wonCoinToss = false;
+            state.vistingTeam.wonCoinToss = true;
+        }
+    }
+
     dispatch({type: LOAD_GAME, payload: state});
 }
 
@@ -44,7 +70,7 @@ export const Game = (props: PropTypes) => {
         let parameters = getUrlVars();
         let currentPlayer = (parameters.player) ? parseInt(parameters.player, 10) : 0;
         console.log(currentPlayer);
-        dispatch(retrieveGame());
+        dispatch(retrieveGame(currentPlayer));
     });
 
     return(

@@ -1,6 +1,12 @@
 import { Chart } from "./chart-types"
 
+export enum CommState {
+    READY = "READY",
+    WAITING = "WAITING"
+}
+
 export interface GameState {
+    commState: CommState,
     homeTeam: Team,
     vistingTeam: Team,
     currentPlayerId: number,
@@ -27,7 +33,8 @@ export enum PlaySelectionMode {
     DEFENSE = "DEFENSE",
     PAT = "PAT",
     KICKOFF = "KICKOFF",
-    COIN_TOSS = "COIN_TOSS"
+    COIN_TOSS = "COIN_TOSS",
+    OPENING_KICKOFF = "OPENING_KICKOFF"
 }
 
 export interface Team {
